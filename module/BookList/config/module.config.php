@@ -9,36 +9,33 @@ namespace BookList;
 
 use Zend\ServiceManager\Factory\InvokableFactory;
 
-
-return [
-    'controllers' => [
-        'factories' => [
+return array(
+    'controllers'=>[
+        'invokables'=>[
             Controller\BookController::class => InvokableFactory::class,
         ],
     ],
-    'router' => [
-        'routes' => [
-            'book' => [
-                'type'    => 'Literal',
-                'options' => [
-                    // Change this to something specific to your module
-                    'route'    => '/book',
-                    'defaults' => [
-                        'controller'    => Controller\BookController::class,
-                        'action'        => 'index',
-                    ],
-                ],
-                'may_terminate' => true,
-                'child_routes' => [
-                    // You can place additional routes that match under the
-                    // route defined above here.
-                ],
-            ],
-        ],
-    ],
+    'router'=>array(
+        'routes'=>array(
+            'book'=>array(
+                'type'=>'segment',
+                'options'=>array(
+                    'route'=>'/book[/][:action][/:id]',
+                    'constraints'=>array(
+                        'action'=>'[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'=>'[0-9]+',
+                    ),
+                    'defaults'=>array(
+                        'controller'=>Controller\BookController::class,
+                        'action'=>'index',
+                    ),
+                ),
+            ),
+        ),
+    ),
     'view_manager' => [
         'template_path_stack' => [
             'ZendSkeletonModule' => __DIR__ . '/../view',
         ],
     ],
-];
+);

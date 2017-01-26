@@ -15,4 +15,14 @@ class AdminController extends AbstractActionController
     {
         return [];
     }
+    public function addAction(){
+
+    }
+    public function editAction(){
+
+    }
+    public function deleteAction(){
+
+    }
+
 }

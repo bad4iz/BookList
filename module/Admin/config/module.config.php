@@ -11,11 +11,16 @@ return [
     ],
     'router' => [
         'routes' => [
-            'module-name-here' => [
-                'type'    => 'Literal',
+            'admin' => [
+                'type'    => 'segment',
                 'options' => [
                     // Change this to something specific to your module
-                    'route'    => '/module',
+//                    'route'    => '/module',
+                    'route'=>'/module[/][:action][/:id]',
+                    'constraints'=>array(
+                        'action'=>'[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'=>'[0-9]+',
+                    ),
                     'defaults' => [
                         'controller'    => Controller\AdminController::class,
                         'action'        => 'index',
