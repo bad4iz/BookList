@@ -6,18 +6,18 @@
  * Time: 20:52
  */
 return array(
-    'controllets'=>array(
-        'inbokables'=>array(
+    'controllers'=>array(
+        'invokables'=>array(
             'BookList\Controller\Book'=>'BookList\Controller\BookController',
         ),
     ),
     'router'=>array(
         'routes'=>array(
-            'boook'=>array(
+            'book'=>array(
                 'type'=>'segment',
                 'options'=>array(
                     'route'=>'/book[/][:action][/:id]',
-                    'comstraints'=>array(
+                    'constraints'=>array(
                         'action'=>'[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'=>'[0-9]+',
                     ),
