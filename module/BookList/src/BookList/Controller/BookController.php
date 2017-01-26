@@ -53,7 +53,7 @@ class BookController extends AbstractActionController{
         }
         return array(
             'id'=>$id,
-            'book'
+//            'book'=>
         );
     }
 }
