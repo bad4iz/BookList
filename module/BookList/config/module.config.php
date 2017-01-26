@@ -5,12 +5,16 @@
  * Date: 25.01.2017
  * Time: 20:52
  */
+namespace BookList;
+
+use Zend\ServiceManager\Factory\InvokableFactory;
+
 return array(
-    'controllers'=>array(
-        'invokables'=>array(
-            'BookList\Controller\Book'=>'BookList\Controller\BookController',
-        ),
-    ),
+    'controllers'=>[
+        'invokables'=>[
+            Controller\BookController::class => InvokableFactory::class,
+        ],
+    ],
     'router'=>array(
         'routes'=>array(
             'book'=>array(
@@ -22,7 +26,7 @@ return array(
                         'id'=>'[0-9]+',
                     ),
                     'defaults'=>array(
-                        'controller'=>'BookList\Controller\Book',
+                        'controller'=>Controller\BookController::class,
                         'action'=>'index',
                     ),
                 ),

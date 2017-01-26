@@ -22,13 +22,15 @@
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Admin\\": "module/Admin/src/"
+            "Admin\\": "module/Admin/src/",
+            "BookList\\": "module/BookList/src/"
+
         }
     },
     "autoload-dev": {
         "psr-4": {
             "ApplicationTest\\": "module/Application/test/",
-            "Admin\\": "module/Admin/src/"
+            "BookList\\": "module/BookList/src/"
 
         }
     },
