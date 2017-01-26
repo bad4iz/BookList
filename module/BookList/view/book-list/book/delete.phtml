@@ -13,16 +13,8 @@ $url = $this->url('book', array(
 ?>
 <form action="<?php echo $url;?>" method="post">
     <div>
-        <input type="hidden" name="id" value="<?php echo (int) $book->id">
+        <input type="hidden" name="id" value="<?php echo (int) $book->id;?>">
+        <input type="submit" name="del" value="Yes"/>
+        <input type="submit" name="del" value="No" />
     </div>
 </form>
-$form=$this->form;
-$form->setAttribute('action', $this->url('book', array('action'=>'edit', 'id'=>$this->id)));
-$form->prepare();
-
-echo $this->form()->openTag($form);
-echo $this->formHidden($form->get('id'));
-echo $this->formRow($form->get('title'));
-echo $this->formRow($form->get('author'));
-echo $this->formSubmit($form->get('submit'));
-echo $this->form()->closeTag();
