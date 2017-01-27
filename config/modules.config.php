@@ -12,8 +12,6 @@
  */
 return [
     'Zend\Db',
-    'DoctrineModule',
-    'DoctrineORMModule',
     'Zend\Serializer',
     'Zend\Log',
     'Zend\Form',

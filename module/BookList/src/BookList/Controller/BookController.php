@@ -12,14 +12,25 @@ namespace BookList\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use BookList\Form\BookForm;
+use BookList\Model\BookTable;
 
 class BookController extends AbstractActionController{
+    protected $bookTable;
+
+
+    /**
+     * @return ViewModel
+     */
     public function indexAction()
     {
         return new ViewModel(array(
-            'book'=>[]
+            'books'=>$this->getBookTable()->fetchAll(),
         ));
     }
+
+
+
+
     public function addAction(){
         $form = new BookForm();
         $form->get('submit')->setValue('Add');
@@ -41,7 +52,7 @@ class BookController extends AbstractActionController{
 
         }
         return array(
-            'id'=> $id,
+//            'id'=> $id,
             'form'=> $form
         );
 
@@ -56,4 +67,13 @@ class BookController extends AbstractActionController{
 //            'book'=>
         );
     }
+    public function getBookTable(){
+        if (!$this->bookTable){
+            $sm=$this->getServiceLocator();
+            $this->bookTable=$sm->get('BookList\Model\BookTable');
+        }
+        return $this->bookTable;
+    }
+
+
 }
