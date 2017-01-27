@@ -7,14 +7,19 @@
  */
 
 namespace BookList\Model;
-use Zend\Validator\Db;
+
+use Zend\Db\TableGateway\TableGateway;
 
 class BookTable
 {
-protected $tableGateway;
+    protected $tableGateway;
 
-public function __construct(TableGateway $tableGateway)
-{
-    $this->tableGateway=$tableGateway;
-}
+    public function __construct(TableGateway $tableGateway)
+    {
+        $this->tableGateway = $tableGateway;
+    }
+
+    public function fetchAll(){
+        
+    }
 }
